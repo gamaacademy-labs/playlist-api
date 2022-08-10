@@ -1,4 +1,4 @@
-# Gama Lab Playlist Service APIIII
+# Gama Lab Playlist Service API
 ## Setup Docker
 🐳 - [Docker windows](https://docs.docker.com/desktop/install/windows-install/)
 
