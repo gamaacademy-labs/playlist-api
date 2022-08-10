@@ -1,4 +1,4 @@
-# 🤖 Gama Lab Playlist Service API
+# Gama Lab Playlist Service API
 ## Setup Docker
 🐳 - [Docker windows](https://docs.docker.com/desktop/install/windows-install/)
 
@@ -13,7 +13,7 @@ $ docker-compose up -d
 $ yarn
 ```
 
-## DB migration 
+## DB migration
 ```bash
 $ yarn db:migrate
 ```
