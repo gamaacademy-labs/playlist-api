@@ -5,7 +5,6 @@ import { DatabaseModule } from './infrastructure/database/database.module';
 import { PlaylistsModule } from './infrastructure/modules/playlists/playlists.module';
 import { ContentsModule } from './infrastructure/modules/contents/contents.module';
 
-
 @Module({
   imports: [DatabaseModule, PlaylistsModule, ContentsModule],
   controllers: [AppController],
