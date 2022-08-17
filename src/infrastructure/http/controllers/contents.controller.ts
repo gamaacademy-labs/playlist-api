@@ -1,9 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Put,
+} from '@nestjs/common';
 import { ContentsDTO } from '../../../domain/dto/contents.dto';
 import { ContentsService } from '../../modules/contents/contents.service';
 
 @Controller('contents')
 export class ContentsController {
+  // eslint-disable-next-line prettier/prettier
   constructor(private readonly contentsService: ContentsService) {}
 
   @Post()
@@ -16,14 +25,13 @@ export class ContentsController {
     return this.contentsService.findAll();
   }
 
-  @Put(":id")
+  @Put(':id')
   async update(@Param('id') id: string, @Body() data: ContentsDTO) {
     return this.contentsService.update(id, data);
   }
 
-  @Delete(":id")
+  @Delete(':id')
   async delete(@Param('id') id: string) {
     return this.contentsService.delete(id);
   }
-
 }
