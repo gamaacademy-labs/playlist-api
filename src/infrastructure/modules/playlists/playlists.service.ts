@@ -25,7 +25,16 @@ export class PlaylistsService {
   }
 
   async findAll() {
-    return this.prisma.playlists.findMany();
+    return this.prisma.playlists.findMany({
+      select: {
+        contents: {
+          select: {
+            content: true,
+          },
+        },
+        ratings: true,
+      },
+    });
   }
 
   async update(id: string, data: PlaylistsDTO) {
