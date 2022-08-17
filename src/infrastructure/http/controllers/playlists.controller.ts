@@ -1,36 +1,19 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Param,
-  Delete,
-  Put,
-} from '@nestjs/common';
-import { PlaylistsDTO } from '../../../domain/dto/playlists.dto';
-import { PlaylistsService } from '../../modules/playlists/playlists.service';
+import { Controller, Get, Param } from '@nestjs/common';
+import { PlaylistsRepository } from 'src/infrastructure/database/repositories/playlists.repository';
+import { FindOnePlaylistUsecase } from 'src/usecases/find-one-playlist.usecase';
 
 @Controller('playlists')
 export class PlaylistsController {
-  constructor(private readonly playlistsService: PlaylistsService) {}
+  private readonly findOnePlaylistUsecase: FindOnePlaylistUsecase;
 
-  @Post()
-  async create(@Body() data: PlaylistsDTO) {
-    return this.playlistsService.create(data);
+  constructor(private readonly playlistsRepository: PlaylistsRepository) {
+    this.findOnePlaylistUsecase = new FindOnePlaylistUsecase(
+      this.playlistsRepository,
+    );
   }
 
-  @Get()
-  async findAll() {
-    return this.playlistsService.findAll();
-  }
-
-  @Put(':id')
-  async update(@Param('id') id: string, @Body() data: PlaylistsDTO) {
-    return this.playlistsService.update(id, data);
-  }
-
-  @Delete(':id')
-  async delete(@Param('id') id: string) {
-    return this.playlistsService.delete(id);
+  @Get('/:title')
+  async findOne(@Param('title') title: string) {
+    return this.findOnePlaylistUsecase.execute(title);
   }
 }
