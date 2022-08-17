@@ -5,6 +5,6 @@ import { ContentsController } from '../../http/controllers/contents.controller';
 
 @Module({
   controllers: [ContentsController],
-  providers: [ContentsService, PrismaProvider]
+  providers: [ContentsService, PrismaProvider],
 })
 export class ContentsModule {}

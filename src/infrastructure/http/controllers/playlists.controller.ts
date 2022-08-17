@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Put,
+} from '@nestjs/common';
 import { PlaylistsDTO } from '../../../domain/dto/playlists.dto';
 import { PlaylistsService } from '../../modules/playlists/playlists.service';
 
@@ -16,14 +24,13 @@ export class PlaylistsController {
     return this.playlistsService.findAll();
   }
 
-  @Put(":id")
+  @Put(':id')
   async update(@Param('id') id: string, @Body() data: PlaylistsDTO) {
     return this.playlistsService.update(id, data);
   }
 
-  @Delete(":id")
+  @Delete(':id')
   async delete(@Param('id') id: string) {
     return this.playlistsService.delete(id);
   }
-
 }

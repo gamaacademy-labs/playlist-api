@@ -5,6 +5,6 @@ import { PlaylistsController } from '../../http/controllers/playlists.controller
 
 @Module({
   controllers: [PlaylistsController],
-  providers: [PlaylistsService, PrismaProvider]
+  providers: [PlaylistsService, PrismaProvider],
 })
 export class PlaylistsModule {}

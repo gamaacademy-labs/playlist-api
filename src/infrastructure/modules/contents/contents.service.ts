@@ -4,9 +4,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ContentsService {
-
   constructor(private prisma: PrismaProvider) {}
-  
+
   async create(data: ContentsDTO) {
     const contentsExists = await this.prisma.contents.findFirst({
       where: {
@@ -33,7 +32,7 @@ export class ContentsService {
     const contentsExists = await this.prisma.contents.findUnique({
       where: {
         id,
-      }
+      },
     });
 
     if (!contentsExists) {
@@ -48,11 +47,11 @@ export class ContentsService {
     });
   }
 
-  async delete(id: string){
+  async delete(id: string) {
     const contentstExists = await this.prisma.contents.findUnique({
       where: {
         id,
-      }
+      },
     });
 
     if (!contentstExists) {

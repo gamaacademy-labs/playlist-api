@@ -4,9 +4,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class PlaylistsService {
-
   constructor(private prisma: PrismaProvider) {}
-  
+
   async create(data: PlaylistsDTO) {
     const playlistExists = await this.prisma.playlists.findFirst({
       where: {
@@ -33,7 +32,7 @@ export class PlaylistsService {
     const playlistExists = await this.prisma.playlists.findUnique({
       where: {
         id,
-      }
+      },
     });
 
     if (!playlistExists) {
@@ -48,11 +47,11 @@ export class PlaylistsService {
     });
   }
 
-  async delete(id: string){
+  async delete(id: string) {
     const playlistExists = await this.prisma.playlists.findUnique({
       where: {
         id,
-      }
+      },
     });
 
     if (!playlistExists) {

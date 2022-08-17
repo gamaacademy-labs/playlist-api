@@ -5,7 +5,7 @@ import {
   OnModuleInit,
   INestApplication,
 } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class PrismaProvider
@@ -35,21 +35,21 @@ const p = new PrismaProvider();
 
 p.playlists.findMany({
   select: {
-    contents: { select: { content: true } }
-  }
-})
+    contents: { select: { content: true } },
+  },
+});
 
 p.playlists.findMany({
   select: {
-    ratings: { select: { rating: true } }
-  }
-})
+    ratings: { select: { rating: true } },
+  },
+});
 
- p.contents.findMany({
-  select: {
-    ratingVideos: { select: { rating: true } }
-   }
- })
 p.contents.findMany({
-  select: { playlists: { select: { playlist: true } }}
-})
+  select: {
+    ratingVideos: { select: { rating: true } },
+  },
+});
+p.contents.findMany({
+  select: { playlists: { select: { playlist: true } } },
+});
