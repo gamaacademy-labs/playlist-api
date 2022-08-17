@@ -1,8 +1,6 @@
-
 import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
-import { ContentsDTO } from './contents.dto';
-import { ContentsService } from './contents.service';
-
+import { ContentsDTO } from '../../../domain/dto/contents.dto';
+import { ContentsService } from '../../modules/contents/contents.service';
 
 @Controller('contents')
 export class ContentsController {

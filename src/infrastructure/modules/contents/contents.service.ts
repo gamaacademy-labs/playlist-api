@@ -1,8 +1,6 @@
 import { PrismaProvider } from './../../database/providers/prisma.provider';
-import { ContentsDTO } from './contents.dto';
+import { ContentsDTO } from '../../../domain/dto/contents.dto';
 import { Injectable } from '@nestjs/common';
-
-
 
 @Injectable()
 export class ContentsService {

@@ -1,8 +1,6 @@
 import { PrismaProvider } from './../../database/providers/prisma.provider';
-import { PlaylistsDTO } from './playlists.dto';
+import { PlaylistsDTO } from '../../../domain/dto/playlists.dto';
 import { Injectable } from '@nestjs/common';
-
-
 
 @Injectable()
 export class PlaylistsService {

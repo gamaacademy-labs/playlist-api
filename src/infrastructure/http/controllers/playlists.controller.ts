@@ -1,8 +1,6 @@
-
-import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
-import { PlaylistsDTO } from './playlists.dto';
-import { PlaylistsService } from './playlists.service';
-
+import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { PlaylistsDTO } from '../../../domain/dto/playlists.dto';
+import { PlaylistsService } from '../../modules/playlists/playlists.service';
 
 @Controller('playlists')
 export class PlaylistsController {

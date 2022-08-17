@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PlaylistsController } from './playlists.controller';
-import { PlaylistsService } from './playlists.service';
+import { PlaylistsService } from '../../modules/playlists/playlists.service';
 
 describe('PlaylistsController', () => {
   let controller: PlaylistsController;
