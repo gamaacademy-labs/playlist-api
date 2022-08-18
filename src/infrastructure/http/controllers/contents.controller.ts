@@ -1,22 +1,18 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Param,
-  Delete,
-  Put,
-} from '@nestjs/common';
-import { ContentsDTO } from '../../../domain/dto/contents.dto';
-import { ContentsService } from '../../modules/contents/contents.service';
+import { Controller, Get, Param } from '@nestjs/common';
+import { FindOneRepositoryUsecase } from './../../../usecases/find-one-repository.usecase';
+import { ContentsRepository } from './../../database/repositories/contents.repository';
 
 @Controller('contents')
 export class ContentsController {
-  // eslint-disable-next-line prettier/prettier
-  constructor(private readonly contentsService: ContentsService) {}
+  private readonly findOneRepositoryUsecase: FindOneRepositoryUsecase;
 
-  @Get()
-  async findAll() {
-    return this.contentsService.findAll();
+  constructor(private readonly contentsRepository: ContentsRepository) {
+    this.findOneRepositoryUsecase = new FindOneRepositoryUsecase(
+      this.contentsRepository,
+    );
+  }
+  @Get('/:id')
+  async findOne(@Param('id') id: string) {
+    return this.findOneRepositoryUsecase.execute(id);
   }
 }
