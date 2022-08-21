@@ -53,18 +53,28 @@ model Contents {
   title        String           @unique
   thumbnail    String
   linkVideo    String
-  ratingVideos ContentsRating[]
+  ratingVideos ContentsRatings[]
   createdAt    DateTime         @default(now())
   updatedAt    DateTime         @default(now()) @updatedAt()
 
   playlists PlaylistContents[]
 }
 
-model ContentsRating {
+model ContentsRatings {
   id         String    @id @default(cuid())
-  contentsId String
+  contentId String @map("contentsId")
+  StudentId String
   rating     Int
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @default(now()) @updatedAt()
-  contents   Contents? @relation(fields: [contentsId], references: [id])
+  contents   Contents? @relation(fields: [contentId], references: [id])
+  student Students @relation(fields: [StudentId], references: [id])
+}
+
+model Students {
+  id         String    @id @default(cuid())
+  name       String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt()
+ rating ContentsRatings[]
 }
