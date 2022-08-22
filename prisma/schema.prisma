@@ -17,25 +17,27 @@ enum PlaylistLevel {
 }
 
 model Playlists {
-  id               String             @id @default(cuid())
-  title            String             @unique
-  thumbnail        String
-  description      String
-  duration         Int
-  level            PlaylistLevel      @default(MEDIUM)
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @default(now()) @updatedAt()
-  ratings          PlaylistsRatings[]
-  contents PlaylistContents[]
+  id          String             @id @default(cuid())
+  title       String             @unique
+  thumbnail   String
+  description String
+  duration    Int
+  level       PlaylistLevel      @default(MEDIUM)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @default(now()) @updatedAt()
+  ratings     PlaylistsRatings[]
+  contents    PlaylistContents[]
 }
 
 model PlaylistsRatings {
   id         String    @id @default(cuid())
   playlistId String
+  studentId String
   rating     Int
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @default(now()) @updatedAt()
   playlist   Playlists @relation(fields: [playlistId], references: [id])
+  students Students @relation(fields: [studentId], references: [id])
 }
 
 model PlaylistContents {
@@ -49,22 +51,33 @@ model PlaylistContents {
 }
 
 model Contents {
-  id           String           @id @default(cuid())
-  title        String           @unique
+  id           String            @id @default(cuid())
+  title        String            @unique
   thumbnail    String
   linkVideo    String
-  ratingVideos ContentsRating[]
-  createdAt    DateTime         @default(now())
-  updatedAt    DateTime         @default(now()) @updatedAt()
+  ratingVideos ContentsRatings[]
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @default(now()) @updatedAt()
 
   playlists PlaylistContents[]
 }
 
-model ContentsRating {
-  id         String    @id @default(cuid())
-  contentsId String
-  rating     Int
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @default(now()) @updatedAt()
-  contents   Contents? @relation(fields: [contentsId], references: [id])
+model ContentsRatings {
+  id        String    @id @default(cuid())
+  contentId String    @map("contentsId")
+  StudentId String
+  rating    Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt()
+  contents  Contents? @relation(fields: [contentId], references: [id])
+  students   Students?  @relation(fields: [StudentId], references: [id])
+}
+
+model Students {
+  id        String            @id @default(cuid())
+  name      String
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @default(now()) @updatedAt()
+  contentsRagtings    ContentsRatings[]
+  playlistsRatings PlaylistsRatings[]
 }
