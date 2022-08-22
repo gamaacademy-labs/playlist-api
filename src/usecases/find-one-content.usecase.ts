@@ -1,6 +1,6 @@
 import { ContentsRepository } from 'src/infrastructure/database/repositories/contents.repository';
 
-export class FindOneContentsUsecase {
+export class FindOneContentUsecase {
   constructor(private readonly contentsRepository: ContentsRepository) {}
 
   async execute(id: string) {
