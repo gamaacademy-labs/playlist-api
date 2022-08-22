@@ -27,6 +27,8 @@ model Playlists {
   updatedAt   DateTime           @default(now()) @updatedAt()
   ratings     PlaylistsRatings[]
   contents    PlaylistContents[]
+
+  @@map("playlists")
 }
 
 model PlaylistsRatings {
@@ -38,6 +40,8 @@ model PlaylistsRatings {
   updatedAt  DateTime  @default(now()) @updatedAt()
   playlist   Playlists @relation(fields: [playlistId], references: [id])
   students Students @relation(fields: [studentId], references: [id])
+
+  @@map("playlistsratings")
 }
 
 model PlaylistContents {
@@ -48,6 +52,8 @@ model PlaylistContents {
   updatedAt  DateTime  @default(now()) @updatedAt()
   playlist   Playlists @relation(fields: [playlistId], references: [id])
   content    Contents  @relation(fields: [contentId], references: [id])
+
+  @@map("playlistcontents")
 }
 
 model Contents {
@@ -60,17 +66,22 @@ model Contents {
   updatedAt    DateTime          @default(now()) @updatedAt()
 
   playlists PlaylistContents[]
+  studentHistory StudentHistory[]
+
+  @@map("contents")
 }
 
 model ContentsRatings {
   id        String    @id @default(cuid())
-  contentId String    @map("contentsId")
-  StudentId String
+  contentId String
+  studentId String
   rating    Int
   createdAt DateTime  @default(now())
   updatedAt DateTime  @default(now()) @updatedAt()
   contents  Contents? @relation(fields: [contentId], references: [id])
-  students   Students?  @relation(fields: [StudentId], references: [id])
+  students   Students?  @relation(fields: [studentId], references: [id])
+
+  @@map("contentsratings")
 }
 
 model Students {
@@ -78,6 +89,22 @@ model Students {
   name      String
   createdAt DateTime          @default(now())
   updatedAt DateTime          @default(now()) @updatedAt()
-  contentsRagtings    ContentsRatings[]
+  contentsRatings    ContentsRatings[]
   playlistsRatings PlaylistsRatings[]
+  studentHistory StudentHistory[]
+
+  @@map("students")
+}
+
+model StudentHistory {
+  id        String            @id @default(cuid())
+  contentId String
+  studentId String
+  isVideoFinished Boolean     @default(false)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @default(now()) @updatedAt()
+  content Contents @relation(fields: [contentId], references: [id])
+  student Students @relation(fields: [studentId], references: [id])
+
+  @@map("studenthistory")
 }
