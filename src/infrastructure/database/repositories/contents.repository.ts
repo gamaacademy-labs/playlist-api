@@ -12,7 +12,7 @@ export class ContentsRepository {
         id,
       },
       select: {
-        ratingVideos: true,
+        rating: true,
       },
     });
   }
