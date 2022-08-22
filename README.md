@@ -47,7 +47,7 @@ $ yarn test:cov
 ## Other commands
 ```bash
 # visualize the database on browser
-$ yarn db:show
+$ yarn db:view
 ```
 
 ## Support

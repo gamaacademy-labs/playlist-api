@@ -10,11 +10,74 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id          String @id @default(cuid())
-  name        String
-  email       String
-  password    String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now())
+enum PlaylistLevel {
+  EASY
+  MEDIUM
+  HARD
+}
+
+model Playlists {
+  id          String             @id @default(cuid())
+  title       String             @unique
+  thumbnail   String
+  description String
+  duration    Int
+  level       PlaylistLevel      @default(MEDIUM)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @default(now()) @updatedAt()
+  ratings     PlaylistsRatings[]
+  contents    PlaylistContents[]
+}
+
+model PlaylistsRatings {
+  id         String    @id @default(cuid())
+  playlistId String
+  studentId String
+  rating     Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt()
+  playlist   Playlists @relation(fields: [playlistId], references: [id])
+  students Students @relation(fields: [studentId], references: [id])
+}
+
+model PlaylistContents {
+  id         String    @id @default(cuid())
+  playlistId String
+  contentId  String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt()
+  playlist   Playlists @relation(fields: [playlistId], references: [id])
+  content    Contents  @relation(fields: [contentId], references: [id])
+}
+
+model Contents {
+  id           String            @id @default(cuid())
+  title        String            @unique
+  thumbnail    String
+  linkVideo    String
+  ratingVideos ContentsRatings[]
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @default(now()) @updatedAt()
+
+  playlists PlaylistContents[]
+}
+
+model ContentsRatings {
+  id        String    @id @default(cuid())
+  contentId String    @map("contentsId")
+  StudentId String
+  rating    Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt()
+  contents  Contents? @relation(fields: [contentId], references: [id])
+  students   Students?  @relation(fields: [StudentId], references: [id])
+}
+
+model Students {
+  id        String            @id @default(cuid())
+  name      String
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @default(now()) @updatedAt()
+  contentsRagtings    ContentsRatings[]
+  playlistsRatings PlaylistsRatings[]
 }
