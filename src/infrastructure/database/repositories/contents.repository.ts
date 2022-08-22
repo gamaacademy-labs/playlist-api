@@ -1,5 +1,6 @@
-import { PrismaProvider } from '../providers/prisma.provider';
 import { Injectable } from '@nestjs/common';
+
+import { PrismaProvider } from '../providers/prisma.provider';
 
 @Injectable()
 export class ContentsRepository {

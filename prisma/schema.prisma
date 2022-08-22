@@ -55,7 +55,7 @@ model Contents {
   title        String            @unique
   thumbnail    String
   linkVideo    String
-  ratingVideos ContentsRatings[]
+  rating ContentsRatings[]
   createdAt    DateTime          @default(now())
   updatedAt    DateTime          @default(now()) @updatedAt()
 
