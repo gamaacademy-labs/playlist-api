@@ -1,4 +1,5 @@
 import { Global, Module } from '@nestjs/common';
+
 import { PrismaProvider } from './providers/prisma.provider';
 import { ContentsRepository } from './repositories/contents.repository';
 import { PlaylistsRepository } from './repositories/playlists.repository';
