@@ -15,6 +15,13 @@ export class PlaylistsRepository {
           select: {
             content: true,
           },
+          include: {
+            content: {
+              select: {
+                studentHistory: true,
+              },
+            },
+          },
         },
         ratings: true,
       },
