@@ -6,6 +6,7 @@ import { swaggerConfig } from './infrastructure/configs/swagger.config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
 
   // API Documentation
   const document = SwaggerModule.createDocument(app, swaggerConfig);
