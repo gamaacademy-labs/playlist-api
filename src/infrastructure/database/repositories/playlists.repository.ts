@@ -20,4 +20,8 @@ export class PlaylistsRepository {
       },
     });
   }
+
+  async findAll() {
+    return this.prisma.playlists.findMany();
+  }
 }

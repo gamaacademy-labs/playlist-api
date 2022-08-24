@@ -9,6 +9,6 @@ import { PlaylistsRepository } from './repositories/playlists.repository';
 @Global()
 @Module({
   providers: [PrismaProvider, PlaylistsRepository, ContentsRepository],
-  exports: [PrismaProvider],
+  exports: [PrismaProvider, PlaylistsRepository, ContentsRepository],
 })
 export class DatabaseModule {}
