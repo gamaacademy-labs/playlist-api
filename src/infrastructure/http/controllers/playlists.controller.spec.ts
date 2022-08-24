@@ -1,6 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { PlaylistsService } from '../../modules/playlists/playlists.service';
 import { PlaylistsController } from './playlists.controller';
 
 describe('PlaylistsController', () => {
@@ -9,7 +8,6 @@ describe('PlaylistsController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PlaylistsController],
-      providers: [PlaylistsService],
     }).compile();
 
     controller = module.get<PlaylistsController>(PlaylistsController);
