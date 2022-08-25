@@ -108,5 +108,5 @@ model StudentsHistories {
   content Contents @relation(fields: [contentId], references: [id])
   student Students @relation(fields: [studentId], references: [id])
 
-  @@map("students_ßhistories")
+  @@map("students_histories")
 }
