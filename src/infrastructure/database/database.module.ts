@@ -15,6 +15,6 @@ import { StudentsHistoriesRepository } from './repositories/studentsHistories.re
     ContentsRepository,
     StudentsHistoriesRepository,
   ],
-  exports: [PrismaProvider],
+  exports: [PrismaProvider, PlaylistsRepository, ContentsRepository],
 })
 export class DatabaseModule {}
