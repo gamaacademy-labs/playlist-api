@@ -1,7 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 
 import { PrismaProvider } from './providers/prisma.provider';
-import { ContentsRepository } from './repositories/contents.repository';
 import { PlaylistsRepository } from './repositories/playlists.repository';
 import { StudentsHistoriesRepository } from './repositories/studentsHistories.repository';
 
@@ -9,12 +8,7 @@ import { StudentsHistoriesRepository } from './repositories/studentsHistories.re
 // aqui dentro possa ser usado em qualquer lugar
 @Global()
 @Module({
-  providers: [
-    PrismaProvider,
-    PlaylistsRepository,
-    ContentsRepository,
-    StudentsHistoriesRepository,
-  ],
-  exports: [PrismaProvider, PlaylistsRepository, ContentsRepository],
+  providers: [PrismaProvider, PlaylistsRepository, StudentsHistoriesRepository],
+  exports: [PrismaProvider, PlaylistsRepository, StudentsHistoriesRepository],
 })
 export class DatabaseModule {}
