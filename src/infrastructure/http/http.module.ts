@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ContentsController } from './controllers/contents.controller';
 import { PlaylistsController } from './controllers/playlists.controller';
+import { StudentHistoriesController } from './controllers/student-histories.controller';
 
 @Module({
-  controllers: [ContentsController, PlaylistsController],
+  controllers: [PlaylistsController, StudentHistoriesController],
 })
 export class HttpModule {}
