@@ -7,10 +7,10 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
-
 
 enum PlaylistLevel {
   EASY
@@ -43,7 +43,7 @@ model PlaylistsRatings {
   playlist   Playlists @relation(fields: [playlistId], references: [id])
   students Students @relation(fields: [studentId], references: [id])
 
-  @@map("playlistsratings")
+  @@map("playlists_ratings")
 }
 
 model PlaylistContents {
@@ -55,7 +55,7 @@ model PlaylistContents {
   playlist   Playlists @relation(fields: [playlistId], references: [id])
   content    Contents  @relation(fields: [contentId], references: [id])
 
-  @@map("playlistcontents")
+  @@map("playlist_contents")
 }
 
 model Contents {
@@ -83,7 +83,7 @@ model ContentsRatings {
   contents  Contents? @relation(fields: [contentId], references: [id])
   students   Students?  @relation(fields: [studentId], references: [id])
 
-  @@map("contentsratings")
+  @@map("contents_ratings")
 }
 
 model Students {
@@ -108,5 +108,5 @@ model StudentsHistories {
   content Contents @relation(fields: [contentId], references: [id])
   student Students @relation(fields: [studentId], references: [id])
 
-  @@map("studentshistories")
+  @@map("students_ßhistories")
 }
