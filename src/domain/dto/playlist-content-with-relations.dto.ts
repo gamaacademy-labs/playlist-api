@@ -1,21 +1,21 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { ContentsDTO } from './contents.dto';
 
-export class ContentsDTO {
+export class PlaylistContentWithRelationsDTO {
   @ApiProperty()
-  id?: string;
-
-  @ApiProperty()
-  title: string;
+  id: string;
 
   @ApiProperty()
-  thumbnail: string;
+  playlistId: string;
 
   @ApiProperty()
-  linkVideo: string;
+  contentId: string;
 
   @ApiProperty()
   createdAt: Date;
 
   @ApiProperty()
   updatedAt: Date;
+
+  content: ContentsDTO;
 }

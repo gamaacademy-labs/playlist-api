@@ -1,22 +1,30 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { PlaylistContentWithRelationsDTO } from './playlist-content-with-relations.dto';
 
-export class PlaylistsDTO {
+export class PlaylistsWithRelationsDTO {
   @ApiProperty()
-  id?: string;
+  id: string;
+
   @ApiProperty()
   title: string;
+
   @ApiProperty()
   thumbnail: string;
+
   @ApiProperty()
   description: string;
+
   @ApiProperty()
   duration: number;
+
   @ApiProperty()
-  level: any;
+  level: string;
+
   @ApiProperty()
-  createdAt: string;
+  createdAt: Date;
+
   @ApiProperty()
-  updatedAt: string;
-  // ratings: Array<number>;
-  // contents: Array<string>;
+  updatedAt: Date;
+
+  contents: PlaylistContentWithRelationsDTO[];
 }

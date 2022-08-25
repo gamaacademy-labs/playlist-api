@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { PlaylistsRepository } from 'src/infrastructure/database/repositories/playlists.repository';
 import { FindOnePlaylistUsecase } from 'src/usecases/find-one-playlist.usecase';
 
@@ -19,6 +19,9 @@ export class PlaylistsController {
     return this.playlistsRepository.findAll();
   }
 
+  @ApiOperation({
+    summary: 'This is returning playlist with all relations',
+  })
   @Get('/:title')
   async findOne(@Param('title') title: string) {
     return this.findOnePlaylistUsecase.execute(title);
