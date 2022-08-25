@@ -10,14 +10,11 @@ export class PlaylistsRepository {
       where: {
         title,
       },
-      select: {
+      include: {
         contents: {
-          select: {
-            content: true,
-          },
           include: {
             content: {
-              select: {
+              include: {
                 studentHistory: true,
               },
             },
