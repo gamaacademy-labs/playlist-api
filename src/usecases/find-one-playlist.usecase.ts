@@ -1,5 +1,5 @@
-import { PlaylistWithContentDTO } from 'src/domain/dto/playlist-with-content.dto';
-import { PlaylistsRepository } from 'src/infrastructure/database/repositories/playlists.repository';
+import { PlaylistWithContentDTO } from '../domain/dto/playlist-with-content.dto';
+import { PlaylistsRepository } from '../infrastructure/database/repositories/playlists.repository';
 
 export class FindOnePlaylistUsecase {
   constructor(private readonly playlistsRepository: PlaylistsRepository) {}
