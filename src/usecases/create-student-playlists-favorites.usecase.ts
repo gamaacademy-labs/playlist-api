@@ -6,7 +6,7 @@ export class CreateStudentsPlaylistsFavoritesUsecase {
     private readonly studentsPlaylistsFavoritesRepository: StudentsPlaylistsFavoritesRepository,
   ) {}
 
-  async create(data: StudentsPlaylistsFavoritesDTO) {
+  async execute(data: StudentsPlaylistsFavoritesDTO) {
     const studentPlaylistsFavorites =
       await this.studentsPlaylistsFavoritesRepository.create(data);
     return studentPlaylistsFavorites;
