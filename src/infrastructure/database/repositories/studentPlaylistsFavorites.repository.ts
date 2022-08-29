@@ -4,7 +4,7 @@ import { StudentsPlaylistsFavoritesDTO } from 'src/domain/dto/studentPlaylistsFa
 import { PrismaProvider } from '../providers/prisma.provider';
 
 @Injectable()
-export class StudentsHistoriesRepository {
+export class StudentsPlaylistsFavoritesRepository {
   constructor(private prisma: PrismaProvider) {}
 
   async create(data: StudentsPlaylistsFavoritesDTO) {
