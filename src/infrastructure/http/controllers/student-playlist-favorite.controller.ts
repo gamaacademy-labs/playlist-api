@@ -6,7 +6,7 @@ import { StudentsPlaylistsFavoritesRepository } from './../../database/repositor
 
 @ApiTags('student-playlist-favorite')
 @Controller('student-playlist-favorite')
-export class StudentPlaylistFavoritesController {
+export class StudentPlaylistsFavoritesController {
   private readonly createStudentPlaylistsFavoritesUsecase: CreateStudentsPlaylistsFavoritesUsecase;
 
   constructor(
