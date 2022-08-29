@@ -1,5 +1,5 @@
-import { StudentsHistoriesDTO } from 'src/domain/dto/studentsHistories.dto';
-import { StudentsHistoriesRepository } from 'src/infrastructure/database/repositories/studentsHistories.repository';
+import { StudentsHistoriesDTO } from '../domain/dto/studentsHistories.dto';
+import { StudentsHistoriesRepository } from '../infrastructure/database/repositories/studentsHistories.repository';
 
 export class CreateStudentsHistoryUsecase {
   constructor(
