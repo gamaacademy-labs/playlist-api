@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaProvider } from 'src/infrastructure/database/providers/prisma.provider';
+import { PrismaProvider } from '../../../infrastructure/database/providers/prisma.provider';
 
 @Injectable()
 export class PlaylistsRepository {

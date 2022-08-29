@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { StudentsHistoriesDTO } from 'src/domain/dto/studentsHistories.dto';
+import { StudentsHistoriesDTO } from '../../../domain/dto/studentsHistories.dto';
 
 import { PrismaProvider } from '../providers/prisma.provider';
 
