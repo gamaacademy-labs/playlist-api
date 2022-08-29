@@ -1,7 +1,7 @@
 import { StudentsPlaylistsFavoritesDTO } from 'src/domain/dto/studentPlaylistsFavorites.dto';
 import { StudentsPlaylistsFavoritesRepository } from 'src/infrastructure/database/repositories/studentPlaylistsFavorites.repository';
 
-export class CreateStudentsPlaylistsFavorites {
+export class CreateStudentsPlaylistsFavoritesUsecase {
   constructor(
     private readonly studentsPlaylistsFavoritesRepository: StudentsPlaylistsFavoritesRepository,
   ) {}
