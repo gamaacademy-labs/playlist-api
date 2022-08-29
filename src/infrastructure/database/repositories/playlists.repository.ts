@@ -26,6 +26,8 @@ export class PlaylistsRepository {
   }
 
   async findAll() {
-    return this.prisma.playlists.findMany();
+    return this.prisma.playlists.findMany({
+      include: { playlistFavorite: true },
+    });
   }
 }
