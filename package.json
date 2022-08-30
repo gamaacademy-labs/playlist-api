@@ -22,7 +22,8 @@
     "seed:run": "ts-node src/infrastructure/database/seeds/index.ts",
     "db:local": "prisma migrate dev",
     "db:prod": "prisma db push",
-    "db:view": "prisma studio"
+    "db:view": "prisma studio",
+    "docker:up": "docker-compose up -d"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
