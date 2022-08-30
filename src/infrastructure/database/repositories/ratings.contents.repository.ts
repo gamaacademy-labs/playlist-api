@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { RatingsContentsDTO } from 'src/domain/dto/ratings-contents.dto';
 import { PrismaProvider } from 'src/infrastructure/database/providers/prisma.provider';
 
+import { RatingsContentDTO } from './../../../domain/dto/ratings-content.dto';
+
 @Injectable()
-export class RatingsContentsRepository {
+export class RatingsContentRepository {
   constructor(private prisma: PrismaProvider) {}
 
-  async create(data: RatingsContentsDTO) {
-    const ratingsContents = await this.prisma.contentsRating.createMany({
+  async create(data: RatingsContentDTO) {
+    const ratingsContent = await this.prisma.contentsRating.createMany({
       data,
     });
-    return ratingsContents;
+    return ratingsContent;
   }
 }
