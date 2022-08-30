@@ -19,10 +19,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "db:migrate": "prisma migrate dev",
+    "seed:run": "ts-node src/infrastructure/database/seeds/index.ts",
+    "db:local": "prisma migrate dev",
     "db:prod": "prisma db push",
-    "db:view": "prisma studio",
-    "seed:run": "ts-node src/infrastructure/database/seeds/index.ts"
+    "db:view": "prisma studio"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
