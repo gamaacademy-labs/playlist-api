@@ -9,7 +9,6 @@ generator client {
 datasource db {
   provider = "mysql"
   url = env("DATABASE_URL")
-  shadowDatabaseUrl   = env("SHADOW_DATABASE_URL")
   referentialIntegrity = "prisma"
 }
 
@@ -17,6 +16,12 @@ enum PlaylistLevel {
   EASY
   MEDIUM
   HARD
+}
+
+enum TypeAdditionalContents {
+  VIDEO
+  SLIDE
+  PDF
 }
 
 model Playlists {
@@ -70,6 +75,7 @@ model Contents {
 
   playlists PlaylistContents[]
   studentHistory StudentsHistories[]
+  additionalContents AdditionalContents[]
 
   @@map("contents")
 }
@@ -111,3 +117,17 @@ model StudentsHistories {
 
   @@map("students_histories")
 }
+
+model AdditionalContents {
+  id        String              @id @default(cuid())
+  contentId String
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @default(now()) @updatedAt()
+  content   Contents            @relation(fields: [contentId], references: [id])
+  type      TypeAdditionalContents?
+
+  @@map("additional_contents")
+}
+
+
+
