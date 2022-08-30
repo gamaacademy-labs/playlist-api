@@ -5,7 +5,7 @@ export class RatingsContentDTO {
   id?: string;
 
   @ApiProperty()
-  contentsId: string;
+  contentId: string;
 
   @ApiProperty()
   studentId: string;

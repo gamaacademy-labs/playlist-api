@@ -8,7 +8,7 @@ export class RatingsContentRepository {
   constructor(private prisma: PrismaProvider) {}
 
   async create(data: RatingsContentDTO) {
-    const ratingsContent = await this.prisma.contentsRating.createMany({
+    const ratingsContent = await this.prisma.contentsRatings.createMany({
       data,
     });
     return ratingsContent;

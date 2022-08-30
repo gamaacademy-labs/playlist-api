@@ -11,5 +11,8 @@ export class RatingsPlaylistDTO {
   playlistId: string;
 
   @ApiProperty()
+  studentId: string;
+
+  @ApiProperty()
   rating: number;
 }
