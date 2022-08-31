@@ -14,4 +14,8 @@ export class StudentsPlaylistsFavoritesRepository {
       });
     return studentPlaylistsFavorites;
   }
+
+  async findAll() {
+    return this.prisma.studentPlaylistsFavorites.findMany();
+  }
 }
