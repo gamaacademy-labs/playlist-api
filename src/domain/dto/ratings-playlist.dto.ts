@@ -5,9 +5,6 @@ export class RatingsPlaylistDTO {
   id?: string;
 
   @ApiProperty()
-  contentsId: string;
-
-  @ApiProperty()
   playlistId: string;
 
   @ApiProperty()
