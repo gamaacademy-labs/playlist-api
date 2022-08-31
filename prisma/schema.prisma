@@ -29,7 +29,7 @@ model Playlists {
   updatedAt   DateTime           @default(now()) @updatedAt()
   ratings     PlaylistsRatings[]
   contents    PlaylistContents[]
-  playlistFavorite StudentPlaylistsFavorites[]
+  favoriteBy StudentPlaylistsFavorites[]
 
 
   @@map("playlists")

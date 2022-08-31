@@ -1,8 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class StudentsPlaylistsFavoritesDTO {
-  @ApiProperty()
-  id?: string;
+export class CreateStudentPlaylistDTO {
   @ApiProperty()
   playlistId: string;
   @ApiProperty()

@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { StudentsPlaylistsFavoritesDTO } from 'src/domain/dto/studentPlaylistsFavorites.dto';
+import { CreateStudentPlaylistDTO } from 'src/domain/dto/studentPlaylistsFavorites.dto';
 import { CreateStudentsPlaylistsFavoritesUsecase } from 'src/usecases/create-student-playlists-favorites.usecase';
 import { StudentsPlaylistsFavoritesRepository } from './../../database/repositories/studentPlaylistsFavorites.repository';
 
@@ -19,7 +19,7 @@ export class StudentPlaylistsFavoritesController {
   }
 
   @Post()
-  create(@Body() data: StudentsPlaylistsFavoritesDTO) {
+  create(@Body() data: CreateStudentPlaylistDTO) {
     return this.createStudentPlaylistsFavoritesUsecase.execute(data);
   }
   @Get()

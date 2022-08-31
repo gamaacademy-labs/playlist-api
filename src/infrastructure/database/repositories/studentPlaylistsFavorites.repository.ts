@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { StudentsPlaylistsFavoritesDTO } from 'src/domain/dto/studentPlaylistsFavorites.dto';
+import { CreateStudentPlaylistDTO } from 'src/domain/dto/studentPlaylistsFavorites.dto';
 
 import { PrismaProvider } from '../providers/prisma.provider';
 
@@ -7,7 +7,7 @@ import { PrismaProvider } from '../providers/prisma.provider';
 export class StudentsPlaylistsFavoritesRepository {
   constructor(private prisma: PrismaProvider) {}
 
-  async create(data: StudentsPlaylistsFavoritesDTO) {
+  async create(data: CreateStudentPlaylistDTO) {
     const studentPlaylistsFavorites =
       await this.prisma.studentPlaylistsFavorites.createMany({
         data,
