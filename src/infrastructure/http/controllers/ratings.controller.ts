@@ -32,7 +32,7 @@ export class RatingsController {
     return this.createRatingsContentUsecase.execute(data);
   }
 
-  @Post('/playlist')
+  @Post('/playlists')
   createPlaylistRating(@Body() data: RatingsPlaylistDTO) {
     return this.createRatingsPlaylistUsecase.execute(data);
   }
