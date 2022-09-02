@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common';
 
 import { PrismaProvider } from './providers/prisma.provider';
 import { PlaylistsRepository } from './repositories/playlists.repository';
+import { StudentsPlaylistsFavoritesRepository } from './repositories/studentPlaylistsFavorites.repository';
 import { RatingsPlaylistRepository } from './repositories/ratings-playlist.repository';
 import { RatingsContentRepository } from './repositories/ratings.contents.repository';
 import { StudentsHistoriesRepository } from './repositories/studentsHistories.repository';
@@ -14,6 +15,7 @@ import { StudentsHistoriesRepository } from './repositories/studentsHistories.re
     PrismaProvider,
     PlaylistsRepository,
     StudentsHistoriesRepository,
+    StudentsPlaylistsFavoritesRepository,
     RatingsContentRepository,
     RatingsPlaylistRepository,
   ],
@@ -21,6 +23,7 @@ import { StudentsHistoriesRepository } from './repositories/studentsHistories.re
     PrismaProvider,
     PlaylistsRepository,
     StudentsHistoriesRepository,
+    StudentsPlaylistsFavoritesRepository,
     RatingsContentRepository,
     RatingsPlaylistRepository,
   ],
