@@ -1,8 +1,9 @@
-import { Body, Controller, Patch, Post } from '@nestjs/common';
-import { CreateStudentsHistoryUsecase } from '../../../usecases/create-student-history.usecase';
-import { StudentsHistoriesRepository } from '../../../infrastructure/database/repositories/studentsHistories.repository';
-import { StudentsHistoriesDTO } from '../../../domain/dto/studentsHistories.dto';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+
+import { StudentsHistoriesDTO } from '../../../domain/dto/studentsHistories.dto';
+import { StudentsHistoriesRepository } from '../../../infrastructure/database/repositories/studentsHistories.repository';
+import { CreateStudentsHistoryUsecase } from '../../../usecases/create-student-history.usecase';
 
 @ApiTags('students-histories')
 @Controller('student-histories')
