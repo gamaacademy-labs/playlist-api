@@ -124,7 +124,7 @@ model AdditionalContents {
   createdAt DateTime            @default(now())
   updatedAt DateTime            @default(now()) @updatedAt()
   content   Contents            @relation(fields: [contentId], references: [id])
-  linkVideo String
+  link      String
   type      TypeAdditionalContents?
 
   @@map("additional_contents")
