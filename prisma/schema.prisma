@@ -18,6 +18,12 @@ enum PlaylistLevel {
   HARD
 }
 
+enum TypeAdditionalContents {
+  VIDEO
+  SLIDE
+  PDF
+}
+
 model Playlists {
   id          String             @id @default(cuid())
   title       String             @unique
@@ -70,6 +76,7 @@ model Contents {
   updatedAt    DateTime          @default(now()) @updatedAt()
   playlists PlaylistContents[]
   studentHistory StudentsHistories[]
+  additionalContents AdditionalContents[]
 
   @@map("contents")
 }
@@ -113,6 +120,18 @@ model StudentsHistories {
   @@map("students_histories")
 }
 
+model AdditionalContents {
+  id        String              @id @default(cuid())
+  contentId String
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @default(now()) @updatedAt()
+  content   Contents            @relation(fields: [contentId], references: [id])
+  link      String
+  type      TypeAdditionalContents?
+
+  @@map("additional_contents")
+}
+
 model StudentPlaylistsFavorites {
   id        String            @id @default(cuid())
   playlistId String
@@ -121,3 +140,4 @@ model StudentPlaylistsFavorites {
   playlist Playlists @relation(fields: [playlistId], references: [id])
   @@map("students_playlists_favorites")
 }
+
