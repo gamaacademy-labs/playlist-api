@@ -7,8 +7,6 @@ export class FindOnePlaylistUsecase {
   async execute(title: string) {
     const playlist = await this.playlistsRepository.findOne(title);
 
-    const playlistWithContent = new PlaylistWithContentDTO(playlist);
-
-    return playlistWithContent;
+    return playlist;
   }
 }

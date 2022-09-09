@@ -13,4 +13,13 @@ export class StudentsHistoriesRepository {
     });
     return studentsHistories;
   }
+
+  async update(data: Partial<StudentsHistoriesDTO>) {
+    return this.prisma.studentsHistories.update({
+      where: {
+        id: data.id,
+      },
+      data,
+    });
+  }
 }

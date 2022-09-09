@@ -9,13 +9,17 @@ export class StudentsPlaylistsFavoritesRepository {
 
   async create(data: CreateStudentPlaylistDTO) {
     const studentPlaylistsFavorites =
-      await this.prisma.studentPlaylistsFavorites.createMany({
+      await this.prisma.studentPlaylistsFavorites.create({
         data,
       });
     return studentPlaylistsFavorites;
   }
 
   async findAll() {
-    return this.prisma.studentPlaylistsFavorites.findMany();
+    return this.prisma.studentPlaylistsFavorites.findMany({
+      include: {
+        playlist: true,
+      },
+    });
   }
 }
