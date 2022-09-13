@@ -5,7 +5,7 @@ import { PrismaProvider } from '../../../infrastructure/database/providers/prism
 export class PlaylistsRepository {
   constructor(private prisma: PrismaProvider) {}
 
-  async findOne(title: string) {
+  async findOne(title: string, studentId = 'cl80j7h910035092m4y1upc6s') {
     return this.prisma.playlists.findFirst({
       where: {
         title,
@@ -15,7 +15,11 @@ export class PlaylistsRepository {
           include: {
             content: {
               include: {
-                studentHistory: true,
+                studentHistory: {
+                  where: {
+                    studentId,
+                  },
+                },
               },
             },
           },

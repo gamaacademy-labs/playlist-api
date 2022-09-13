@@ -7,6 +7,13 @@ export class CreateStudentsHistoryUsecase {
   ) {}
 
   async execute(data: StudentsHistoriesDTO) {
+    // const sh = await this.StudentsHistoriesRepository.findOne(
+    //   data.contentId,
+    //   data.studentId,
+    // );
+
+    // return sh;
+
     return this.StudentsHistoriesRepository.create(data);
   }
 }
