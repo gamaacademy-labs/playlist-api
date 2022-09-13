@@ -1,11 +1,13 @@
 version: '3.1'
 services:
-  db:
-    image: mysql
-    container_name: gama-lab-mysql
+  postgres:
+    container_name: social-dev
+    image: postgres:alpine
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: mydb
     ports:
-      - "3306:3306"
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: development
+      POSTGRES_DB: mydb
+      PGDATA: /var/lib/postgres

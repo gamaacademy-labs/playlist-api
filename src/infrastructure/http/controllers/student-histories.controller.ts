@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Param, Patch, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
 import { StudentsHistoriesDTO } from '../../../domain/dto/studentsHistories.dto';
@@ -23,9 +23,11 @@ export class StudentHistoriesController {
     return this.createStudentHistoryUsecase.execute(data);
   }
 
-  // TODO: create history update to update the isVideoFinalized to true
-  // @Patch('/:id')
-  // update(@Param('id') id: string) {
-  //   return this.updateStudentHistoryIsVideoFinalizedUseCase.execute(id);
-  // }
+  @Patch('/:id')
+  update(@Param('id') id: string) {
+    return this.studentsHistoriesRepository.update({
+      id,
+      isVideoFinished: true,
+    });
+  }
 }
